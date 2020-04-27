@@ -1,0 +1,66 @@
+{
+	"name": "va-extension",
+	"displayName": "va tools",
+	"description": "va Visual Studio Code extension",
+	"publisher": "george",
+	"keywords": [
+		"va"
+	],
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.39.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.akita"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.akita",
+				"title": "va-akita"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "extension.akita",
+					"when": "explorerResourceIsFolder",
+					"group": "va@1"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.39.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.2.0"
+	},
+	"dependencies": {
+		"va": "git+https://github.com/george-quzhi/va.git"
+	},
+	"bugs": {
+		"url": "https://github.com/george-quzhi/va-extension/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/george-quzhi/va-extension"
+	},
+	"homepage": "https://github.com/george-quzhi/va-extension/master/README.md"
+}
