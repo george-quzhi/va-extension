@@ -6,12 +6,13 @@ va项目地址：https://github.com/george-quzhi/va
 
 ## Features
 
-### 生成akita
+### 生成akita(service, query, store, model)
 ### 生成前端component
-### 生成前端service
 ### 生成后端controller
+### 生成后端dto
 ### 生成后端service
 ### 生成后端 db service
+### 生成后端 db model
 
 ## Extension Settings
 
