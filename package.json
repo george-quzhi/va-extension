@@ -1,12 +1,12 @@
 {
-	"name": "va-extension",
-	"displayName": "va tools",
+	"name": "va-generator",
+	"displayName": "va generator tools",
 	"description": "va Visual Studio Code extension",
 	"publisher": "george",
 	"keywords": [
 		"va"
 	],
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.39.0"
 	},
@@ -14,14 +14,54 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.akita"
+		"onCommand:extension.akita",
+		"onCommand:extension.component",
+		"onCommand:extension.controller",
+		"onCommand:extension.dto",
+		"onCommand:extension.service",
+		"onCommand:extension.db-service",
+		"onCommand:extension.db-model",
+		"onCommand:extension.function",
+		"onCommand:extension.module"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "extension.akita",
-				"title": "va-akita"
+				"title": "va-angular-akita"
+			},
+			{
+				"command": "extension.component",
+				"title": "va-angular-component"
+			},
+			{
+				"command": "extension.controller",
+				"title": "va-nodejs-controller"
+      },
+			{
+				"command": "extension.dto",
+				"title": "va-nodejs-dto"
+			},
+			{
+				"command": "extension.service",
+				"title": "va-nodejs-service"
+			},
+			{
+				"command": "extension.db-service",
+				"title": "va-nodejs-db-service"
+			},
+			{
+				"command": "extension.db-model",
+				"title": "va-nodejs-db-model"
+			},
+			{
+				"command": "extension.function",
+				"title": "va-nodejs-function"
+			},
+			{
+				"command": "extension.module",
+				"title": "va-angular-module"
 			}
 		],
 		"menus": {
@@ -30,6 +70,46 @@
 					"command": "extension.akita",
 					"when": "explorerResourceIsFolder",
 					"group": "va@1"
+				},
+				{
+					"command": "extension.component",
+					"when": "explorerResourceIsFolder",
+					"group": "va@2"
+				},
+				{
+					"command": "extension.module",
+					"when": "explorerResourceIsFolder",
+					"group": "va@3"
+				},
+				{
+					"command": "extension.controller",
+					"when": "explorerResourceIsFolder",
+					"group": "va@4"
+				},
+				{
+					"command": "extension.dto",
+					"when": "explorerResourceIsFolder",
+					"group": "va@5"
+				},
+				{
+					"command": "extension.service",
+					"when": "explorerResourceIsFolder",
+					"group": "va@6"
+				},
+				{
+					"command": "extension.db-service",
+					"when": "explorerResourceIsFolder",
+					"group": "va@7"
+				},
+				{
+					"command": "extension.db-model",
+					"when": "explorerResourceIsFolder",
+					"group": "va@8"
+				},
+				{
+					"command": "extension.function",
+					"when": "explorerResourceIsFolder",
+					"group": "va@9"
 				}
 			]
 		}
@@ -39,6 +119,8 @@
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch",
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
@@ -48,9 +130,12 @@
 		"@types/vscode": "^1.39.0",
 		"glob": "^7.1.4",
 		"mocha": "^6.1.4",
+		"ts-loader": "^7.0.1",
 		"tslint": "^5.12.1",
 		"typescript": "^3.3.1",
-		"vscode-test": "^1.2.0"
+		"vscode-test": "^1.2.0",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11"
 	},
 	"dependencies": {
 		"va": "git+https://github.com/george-quzhi/va.git"
